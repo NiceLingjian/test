@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.tab-pannel{
+			clear: both;
+			overflow: hidden;
+			width: 990px;
+			margin: 0 auto;
+		}
+		.tab-pannel li{
+			text-decoration: none;
+			list-style: none;
+			width: 50px;
+			height: 20px;
+			line-height: 20px;
+			float: left;
+			border: 1px solid #cccccc;
+			text-align: center;
+			cursor: pointer;
+		}
+		.tab-cont{
+			width: 990px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<ul class="tab-pannel" id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <div class="tab-cont">我是1111</div>
+  <div class="tab-cont">我是2222</div>
+  <div class="tab-cont">我是3333</div>
+  <script type="text/javascript">
+    window.onload = function(){
+     tab();
+    };
+    function tab(){
+     var oUl = document.getElementById('list');
+     var oLi = oUl.children;
+     var tab = document.getElementsByClassName('tab-cont');
+     for(var i=0; i<oLi.length;i++){
+       (function (index) {
+       oLi[index].onclick = function(){
+         console.log(index);
+         for(var j=0; j<tab.length; j++){
+           tab[j].style.display = 'none';
+         }
+         tab[index].style.display = 'block';
+       };
+       })(i);
+     }
+    }
+  </script>
+</body>
+</html>
